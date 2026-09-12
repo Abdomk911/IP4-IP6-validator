@@ -51,6 +51,7 @@ function isHex(p: string): boolean {
 }
 let queryIParrP: string[] = mysplit(splitedarr, delimiter);
 function validIPAddress(queryIParrP: string[]): string {
+    // Check for IPv4
     if (queryIParrP.length === 4) {
         for (let i = 0; i < queryIParrP.length; i++) {
             let p = queryIParrP[i]!;
@@ -59,10 +60,14 @@ function validIPAddress(queryIParrP: string[]): string {
             for (let j = 0; j < p.length; j++) {
                 if (p[j]! < '0' || p[j]! > '9') {
                     return "invalid";
-                };
+                }const num = Number(p);
+            if (num < 0 || num > 255) return "Neither";
             }
+              return "IPv4";
         }
          return "IPv4";
+
+    // Check for IPv6
     } else if (queryIParrP.length === 8) {
         for (let i = 0; i < queryIParrP.length; i++) {
             let f = queryIParrP[i]!;
