@@ -63,7 +63,7 @@ function validIPAddress(queryIParrP: string[]): string {
                 }const num = Number(p);
             if (num < 0 || num > 255) return "Neither";
             }
-              return "IPv4";
+              
         }
          return "IPv4";
 
